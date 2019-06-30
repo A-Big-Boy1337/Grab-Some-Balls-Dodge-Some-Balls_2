@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Grab_Some_Balls__Dodge_Some_Balls
 {
-    public partial class Form1 : Form
+    public partial class Balls : Form
     {
-        public Form1()
+        public Balls()
         {
             InitializeComponent();
         }

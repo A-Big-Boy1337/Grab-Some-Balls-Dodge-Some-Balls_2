@@ -1,6 +1,6 @@
 ﻿namespace Grab_Some_Balls__Dodge_Some_Balls
 {
-    partial class Form1
+    partial class Balls
     {
         /// <summary>
         /// Required designer variable.

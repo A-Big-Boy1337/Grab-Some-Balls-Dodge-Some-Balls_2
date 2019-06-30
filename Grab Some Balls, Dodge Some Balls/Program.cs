@@ -16,7 +16,7 @@ namespace Grab_Some_Balls__Dodge_Some_Balls
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Balls());
         }
     }
 }
