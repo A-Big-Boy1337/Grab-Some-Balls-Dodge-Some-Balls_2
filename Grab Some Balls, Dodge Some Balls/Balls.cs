@@ -12,9 +12,46 @@ namespace Grab_Some_Balls__Dodge_Some_Balls
 {
     public partial class Balls : Form
     {
+        Graphics g; // declare the graphics object
+        int x = 475, y = 150;// starting position of Red Circle
+        int x3 = 475, y3 = 250 ;
+        //Declare the rectangles to display the spaceship and planets in
+        Rectangle area, area1, area2, area3, area4, area5, area6, area7;
+
+        private void TmrBalls_Tick(object sender, EventArgs e)
+        {
+            area1.X -= 5;// move the area(Red_Circle) across the panel
+            area2.X -= 5  ; //  move the area(Blue_Circle) across the panel
+            PnlGame.Invalidate();//makes the paint event fire to redraw the panel
+        }
+
+        private void PnlGame_Paint(object sender, PaintEventArgs e)
+        {
+            //get the methods from the graphic's class to paint on the panel
+            g = e.Graphics;
+            //use the DrawImage method to draw the spaceship on the panel
+            g.DrawImage(White_Circle, area);
+            //use the DrawImage method to draw the planet on the panel
+            g.DrawImage(Red_Circle, area1);
+            //use the DrawImage method to draw the planet on the panel
+            g.DrawImage(Blue_Circle, area2);
+
+        }
+
+        int x2 = 23, y2 = 150; //starting position of Blue Circle
+        //Load our two images from the bin\debug folder
+        Image White_Circle = Image.FromFile(Application.StartupPath + @"\White_Circle.png");
+        Image Red_Circle = Image.FromFile(Application.StartupPath + @"\Red_Circle.png");
+        Image Blue_Circle = Image.FromFile(Application.StartupPath + @"/Blue_Circle.png");
+
+
         public Balls()
         {
             InitializeComponent();
+            area = new Rectangle(x2, y2, 30, 30);//spaceship's rectangle	
+            area1 = new Rectangle(x, y, 20, 20); //planet1's rectangle
+            area2 = new Rectangle(x3, y3, 20, 20); //Blue Circle's rectangle
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
