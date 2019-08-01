@@ -21,7 +21,7 @@ namespace Grab_Some_Balls__Dodge_Some_Balls
         //Declare the rectangles to display the spaceship and planets in
         Rectangle area, area1, area2, area3, area4, area5, area6, area7;
         Random Circle = new Random();
-        //hi
+        //hi2
         int x = 475;
         int y = Circle.Next(5, 50);// starting position of Red Circle
 
