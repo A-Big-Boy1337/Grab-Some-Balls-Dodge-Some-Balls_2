@@ -10,13 +10,20 @@ using System.Windows.Forms;
 
 namespace Grab_Some_Balls__Dodge_Some_Balls
 {
+
     public partial class Balls : Form
     {
+
+        
         Graphics g; // declare the graphics object
-        int x = 475, y = 150;// starting position of Red Circle
+
         int x3 = 475, y3 = 250 ;
         //Declare the rectangles to display the spaceship and planets in
         Rectangle area, area1, area2, area3, area4, area5, area6, area7;
+        Random Circle = new Random();
+
+        int x = 475;
+        int y = Circle.Next(5, 50);// starting position of Red Circle
 
         private void TmrBalls_Tick(object sender, EventArgs e)
         {
@@ -35,7 +42,11 @@ namespace Grab_Some_Balls__Dodge_Some_Balls
             g.DrawImage(Red_Circle, area1);
             //use the DrawImage method to draw the planet on the panel
             g.DrawImage(Blue_Circle, area2);
-
+            g.DrawImage(Red_Circle, area3);
+            g.DrawImage(Red_Circle, area4);
+            g.DrawImage(Blue_Circle, area5);
+            g.DrawImage(Red_Circle, area6);
+            g.DrawImage(Red_Circle, area7);
         }
 
         int x2 = 23, y2 = 150; //starting position of Blue Circle
@@ -51,6 +62,11 @@ namespace Grab_Some_Balls__Dodge_Some_Balls
             area = new Rectangle(x2, y2, 30, 30);//spaceship's rectangle	
             area1 = new Rectangle(x, y, 20, 20); //planet1's rectangle
             area2 = new Rectangle(x3, y3, 20, 20); //Blue Circle's rectangle
+            area3 = new Rectangle(x, y = Random, 20, 20);// 
+            area4 = new Rectangle(x + 210, y, 40, 40);// 
+            area5 = new Rectangle(x + 280, y, 40, 40);// 
+            area6 = new Rectangle(x + 350, y, 40, 40);//
+            area7 = new Rectangle(x + 420, y, 40, 40);// 
 
         }
 
