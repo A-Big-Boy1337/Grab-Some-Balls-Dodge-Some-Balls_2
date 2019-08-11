@@ -42,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.LblScore = new System.Windows.Forms.Label();
             this.TmrBalls = new System.Windows.Forms.Timer(this.components);
+            this.TmrWhiteBall = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,6 +163,12 @@
             this.TmrBalls.Enabled = true;
             this.TmrBalls.Tick += new System.EventHandler(this.TmrBalls_Tick);
             // 
+            // TmrWhiteBall
+            // 
+            this.TmrWhiteBall.Enabled = true;
+            this.TmrWhiteBall.Interval = 50;
+            this.TmrWhiteBall.Tick += new System.EventHandler(this.TmrWhiteBall_Tick);
+            // 
             // Balls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,10 +184,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PnlGame);
             this.Controls.Add(this.menuStrip1);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Balls";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Balls_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Balls_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -203,6 +213,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LblScore;
         private System.Windows.Forms.Timer TmrBalls;
+        private System.Windows.Forms.Timer TmrWhiteBall;
     }
 }
 

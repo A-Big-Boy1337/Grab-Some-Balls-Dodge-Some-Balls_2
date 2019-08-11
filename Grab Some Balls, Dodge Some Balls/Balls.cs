@@ -20,15 +20,69 @@ namespace Grab_Some_Balls__Dodge_Some_Balls
         int x3 = 475, y3 = 250 ;
         //Declare the rectangles to display the spaceship and planets in
         Rectangle area, area1, area2, area3, area4, area5, area6, area7;
-        Random Circle = new Random();
+        Random rnd = new Random();
         //hi2
         int x = 475;
-        int y = Circle.Next(5, 50);// starting position of Red Circle
+        int y;// starting position of Red Circle
+        bool up, down;
 
-        private void TmrBalls_Tick(object sender, EventArgs e)
+        private void Balls_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Up) { up = false; }
+            if (e.KeyData == Keys.Down) { down = false; }
+
+        }
+
+      
+
+        private void Balls_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Up) { up = true; }
+            if (e.KeyData == Keys.Down) { down = true; }
+
+        }
+
+        private void TmrWhiteBall_Tick(object sender, EventArgs e)
+        {
+            if (up) // if up arrow pressed
+            {
+                if (area.Y < 10) //check to see if white ball within 10 of left side
+                {
+                    area.Y = 10; //if it is < 10 away "bounce" it (set position at 10)
+                }
+                else
+                {
+
+                     area.Y -= 5; //else move 5 to the left
+                }
+
+ 
+
+
+            }
+            if (down) // if down arrow key pressed
+            {
+                if (area.Y > PnlGame.Height - 40)// is spaceship within 40 of right side
+                {
+                    area.Y = PnlGame.Height - 40;
+                }
+                else
+                {
+                    area.Y += 5;
+                }
+            }
+
+        }
+
+            private void TmrBalls_Tick(object sender, EventArgs e)
         {
             area1.X -= 5;// move the area(Red_Circle) across the panel
             area2.X -= 5  ; //  move the area(Blue_Circle) across the panel
+            area3.X -= 5;
+            area4.X -= 5;
+            area5.X -= 5;
+            area6.X -= 5;
+            area7.X -= 5;
             PnlGame.Invalidate();//makes the paint event fire to redraw the panel
         }
 
@@ -59,14 +113,15 @@ namespace Grab_Some_Balls__Dodge_Some_Balls
         public Balls()
         {
             InitializeComponent();
-            area = new Rectangle(x2, y2, 30, 30);//spaceship's rectangle	
+            y = rnd.Next(5, 298);
+            area = new Rectangle(x2, y2, 25, 25);//spaceship's rectangle	
             area1 = new Rectangle(x, y, 20, 20); //planet1's rectangle
             area2 = new Rectangle(x3, y3, 20, 20); //Blue Circle's rectangle
-            area3 = new Rectangle(x, y = Random, 20, 20);// 
-            area4 = new Rectangle(x + 210, y, 40, 40);// 
-            area5 = new Rectangle(x + 280, y, 40, 40);// 
-            area6 = new Rectangle(x + 350, y, 40, 40);//
-            area7 = new Rectangle(x + 420, y, 40, 40);// 
+            area3 = new Rectangle(x, rnd.Next(5,298), 20, 20);// 
+            area4 = new Rectangle(x, rnd.Next (5,298), 20, 20);// 
+            area5 = new Rectangle(x, rnd.Next(5, 298), 20, 20);// 
+            area6 = new Rectangle(x, rnd.Next(5, 298), 20, 20);//
+            area7 = new Rectangle(x, rnd.Next(5, 298), 20, 20);// 
 
         }
 
